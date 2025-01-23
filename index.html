@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Media Registration Check</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer>
+        async function checkRegistration() {
+            const username = document.getElementById('username').value;
+
+            if (!username) {
+                alert('Please enter your username.');
+                return;
+            }
+
+            // Simulated API response (Replace this with your actual API endpoint and logic)
+            const registeredUsers = ['user1', 'user2', 'user3']; // Example data
+            const isRegistered = registeredUsers.includes(username);
+
+            const resultElement = document.getElementById('result');
+            if (isRegistered) {
+                resultElement.textContent = `The username "${username}" is registered.`;
+                resultElement.className = 'text-green-600 font-bold mt-4';
+            } else {
+                resultElement.textContent = `The username "${username}" is not registered.`;
+                resultElement.className = 'text-red-600 font-bold mt-4';
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-100">
+    <!-- Navigation Bar -->
+    <nav class="bg-blue-500 p-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-white text-2xl font-bold">Registration Checker</h1>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <section class="py-16">
+        <div class="container mx-auto px-4">
+            <h2 class="text-2xl font-bold text-center mb-8">Check Your Registration Status</h2>
+            <div class="max-w-lg mx-auto bg-white shadow-lg rounded-lg p-8">
+                <div class="mb-4">
+                    <label for="username" class="block text-gray-700 font-bold mb-2">Username</label>
+                    <input type="text" id="username" class="w-full p-3 border rounded-lg" placeholder="Enter your username">
+                </div>
+                <button 
+                    onclick="checkRegistration()"
+                    class="w-full px-4 py-2 bg-blue-500 text-white font-bold rounded-lg hover:bg-blue-600">
+                    Check Registration
+                </button>
+                <p id="result" class="text-center mt-4"></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-blue-500 text-white text-center py-4">
+        <p>&copy; 2025 Registration Checker. All rights reserved.</p>
+    </footer>
+</body>
+</html>
